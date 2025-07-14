@@ -13,7 +13,7 @@ class EmballageSeeder extends Seeder
      */
     public function run(): void
     {
-        {DB::table('super_categories')->insert(array(
+        {DB::table('emballages')->insert(array(
                 [                
                     'nom' => 'Verre',
                     'slug' => 'verre'

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use Faker\Generator as Faker;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,8 +17,9 @@ class ProduitSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
+        $randomizer = new \Random\Randomizer();
         $GLOBALS['array_files'] = [];
             function filesInDir($tdir)
             {
@@ -34,37 +37,64 @@ class ProduitSeeder extends Seeder
                     else
                     {
                             #echo $tdir.'/'.$file."\n";
-                            array_push($array_files, $tdir.'/'.$file);
+                            if(!in_array($tdir.'/'.$file, $array_files)) {
+                                array_push($array_files, $tdir.'/'.$file);
+                            }
                     }
                 }
                 return $array_files;
             }
         $premier = ((filesInDir('public/images/produits'))[0]);
-        $index = count(explode('/', print_r($premier, true)));
+        $all_products = ((filesInDir('public/images/produits')));
+        $index = 4;
 
-        #6 image
-        $image = strtolower(explode('/', print_r($premier, true))[$index-1]) . "\n";
-        #2 nom
-        $nom = explode('.', $image)[0];
-        #3 slug
-        $slug = Str::slug($nom);
-        echo($nom . "\n");
-        echo($slug . "\n");
-        echo($image);
-        echo((explode('/', print_r($premier, true))[$index-2]));
-        
-        foreach((explode('/', print_r($premier, true))) as $file_data) {
-            #echo(strtolower($file_data) . "\n");
-            $index--;
+        foreach($all_products as $product) {
+            $product = explode('/', $product);
+            $i = (count($product));
+            #6 image
+            $image = strtolower($product[$i-1]);
+            #2 nom
+            $nom = explode('.', $image)[0];
+            #3 slug
+            $slug = Str::slug($nom);
+            #4 description
+            $desctiption = $faker->paragraph(rand(6, 9));
+            #5 prix
+            $prix = (number_format(round($randomizer->getFloat(2, 110), 1), 2));
+            #9 unite_id
+            $unite_id = rand(1, 6);
+            #10 prix_unite
+            $prix_unite = (number_format(round($randomizer->getFloat(0, 15), 1), 2));
+            #11 emballage_id
+            $emballage_id = rand(1, 3);
+            #13 categorie_id
+            $categorie_id = rand(1, 25);
+            #15 marque
+            $marque_id = rand(1, 30);
+            #12 alcoolemie
+            if(($marque_id < 15) || ($marque_id > 25)) {
+                $alcoolemie = (number_format(round($randomizer->getFloat(0, 48), 1), 1));
+            } else {
+                $alcoolemie = null;
+            }
+            
+            {DB::table('produits')->insert(array(   
+                    [                
+                        'nom' => $nom,
+                        'slug' => $slug,
+                        'description' => $desctiption,
+                        'prix' => $prix,
+                        'image' => $image,
+                        'unite_id' => $unite_id,
+                        'prix_unite' => $prix_unite,
+                        'emballage_id' => $emballage_id,
+                        'alcoolemie' => $alcoolemie,
+                        'categorie_id' => $categorie_id,
+                        'marque_id' => $marque_id,
+                    ],
+                ));
+            }
         }
-        #echo(count(explode('/', print_r($premier, true))));
-        #echo('Premier : ' . $premier . "\n");
-        #echo('Type - ' . gettype($premier) . "\n");
-        $premier_r = print_r($premier, true);
-        #echo('Premier_r : ' . $premier_r . "\n");
-        #echo('Type premier_r - ' . gettype($premier_r) . "\n");
-        $premier_r_explode = explode('/', $premier_r);
-        #echo(count($premier_r_explode));
         
         {DB::table('produits')->insert(array(            
             /*
