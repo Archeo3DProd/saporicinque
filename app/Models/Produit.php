@@ -11,6 +11,12 @@ class Produit extends Model
         'slug',
         'description',
         'prix',
-        'image'
+        'image',
+        'unite',
+        'prix_unite',
+        'emballage',
+        'alcoolemie',
+        'categorie',
+        'sous_categorie'
     ];
 }

@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nom')->unique();
             $table->string('slug')->unique();
-            $table->text('desctiption')->nullable();
+            $table->text('description')->nullable();
             $table->decimal('prix', 8, 2)->nullable();
             $table->string('image')->nullable();
-            $table->foreignKey('categorie_id');
             $table->timestamps();
         });
     }

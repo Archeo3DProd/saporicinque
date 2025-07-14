@@ -23,6 +23,11 @@ h1 {
     font-size: 4.8em;
     text-shadow: 8px 8px 4px #222;
 }
+header {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
 .subtitle {
     font-family: 'Jakarta';
     color: #fff;
@@ -31,12 +36,14 @@ h1 {
     font-weight: bolder;
     text-shadow: 8px 8px 4px #222;
 }
+/*
 .container {
     display: flex;
     flex-direction: row;
     min-height: 100vh;
     background: top / contain no-repeat url('/images/castelgrande.jpg');
 }
+
 .sidebar {
     width: 200px;
     background: #c5a880;
@@ -50,16 +57,143 @@ h1 {
     max-width: 190px;
     margin-bottom: 1rem;
 }
-.sidebar nav a {
+    */
+nav {
+    /*border-bottom: 1px solid black;*/
+    border-radius: 4px;
+
+}
+.nav-top {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.navbar-top {
+    width: 76%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+nav a {
     display: block;
     margin: 0.5rem 0;
     text-decoration: none;
     color: #5a4c3c;
     font-weight: bold;
-    padding: 0.5rem;
-    border-radius: 4px;
+    padding: 1.2rem 2.4rem;
     transition: background 0.2s;
 }
+.navbar-up {
+    width: 100%;
+    padding: 0 1.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff !important;
+}
+.search-form{
+    margin-right: 50px;
+    width: 50%;
+}
+.nav-links-pro {
+    width: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+.nav-link-pro {
+    width: 145px;
+    min-width: 145px;
+    height: 55px;
+    background-color: #c5a880;
+    color: #eee !important;
+    padding: 0.8rem;
+    border-radius: 7px;
+    text-decoration: none;
+}
+.navlink-contact {
+    margin-left: 1.7rem;
+}
+.navlink-espace-pro {
+    margin: 0 1.7rem;
+}
+.icone {
+    width: 25px;
+    margin-right: 8px;
+}
+.logo {
+    height: 100px;
+    margin: 1.7rem;
+    margin-left: 0.4rem;
+}
+.banner {
+    /*width: 85%;*/
+    flex-grow: 4;
+    background: top / cover no-repeat url('/images/castelgrande.jpg');
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    height: 480px;
+}
+.banner h1 {
+    margin-top: 4.8rem;
+}
+.banner a {
+    width: 200px;
+    margin: 0 auto;
+    color: white;
+    text-decoration: none;
+    font-size: 1.6rem;
+    text-shadow: 8px 8px 3px #222;
+}
+.banner a:hover {
+    text-decoration: underline;
+}
+/*================ Navbar ASIDE =====================*/
+.main-top {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.navbar-aside li {
+    list-style-type: none;
+}
+.featurette-wrapper {
+    width: 60%;
+    margin-top: 3.2rem;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: row;
+}
+
+.featurette-image img {
+    max-height: 380px;
+    margin: 0 auto;
+}
+
+  .featurette-text {
+    width: 40%;
+  }
+  .featurette-image {
+    /*max-width: 38%;*/
+    display: flex;
+    justify-content: end;
+  }
+.navbar-aside {
+    /*width: 19%;*/
+    min-width: 200px;
+    max-width: 270px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 5px 0;
+}
+/*================ Fin de Navbar ASIDE =====================*/
 .sidebar nav a:hover {
     background: #e0d4c1;
 }
@@ -121,6 +255,39 @@ h1 {
 @keyframes fadeInCard {
     to { opacity: 1; }
 }
+@media (max-width: 500px) {
+    .banner {
+        height: 350px;
+        background: top / cover no-repeat url('/images/castelgrande.jpg');
+    }
+    form {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-bottom: 1.2rem;
+    }
+}
+@media (max-width: 900px) {
+    .navbar-up {
+        flex-direction: column;
+    }
+    .nav-link-pro {
+        margin: 1.2rem;
+    }
+    .search-form {
+        margin: 0 auto;
+    }
+    .nav-link-pro {
+        margin-bottom: 0;
+    }
+    .nav-links-pro {
+        margin-top: 0.8rem;
+    }
+}
+@media (min-width: 1600px) {
+    .banner {
+        background-position: 0px -50px; 
+    }
+}
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -144,10 +311,11 @@ h1 {
 /*=============== Importé de proposition_3 =======================*/
 
 .search-form {
-    width: 50%;
+    max-width: 450px;
+    margin-right: auto;
 }
 main {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 .section-up, .section-down {

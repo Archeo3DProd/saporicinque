@@ -1,0 +1,40 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class SuperCategorieSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        {DB::table('super_categories')->insert(array(
+                [                
+                    'nom' => 'Boissons alcoolisées',
+                    'slug' => 'boissons-alcoolisées'
+                ],
+                [
+                    'nom' => 'Boissons sans alcool',
+                    'slug' => 'boissons-sans-alcool'
+                ],
+                [
+                    'nom' => 'Produits secs',
+                    'slug' => 'produits-secs'
+                ],
+                [
+                    'nom' => 'Douceurs',
+                    'slug' => 'douceurs'
+                ],
+                [
+                    'nom' => 'Assaisonnemnts',
+                    'slug' => 'assaisonnements'
+                ],
+            ));
+        }
+    }
+}
