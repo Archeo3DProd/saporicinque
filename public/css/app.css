@@ -79,7 +79,7 @@ nav {
 }
 nav a {
     display: block;
-    margin: 0.5rem 0;
+    margin: 00;
     text-decoration: none;
     color: #5a4c3c;
     font-weight: bold;
@@ -94,6 +94,7 @@ nav a {
     justify-content: space-between;
     align-items: center;
     background-color: #fff !important;
+    box-shadow: 0 3px 15px gray inset;
 }
 .search-form{
     margin-right: 50px;
@@ -127,7 +128,7 @@ nav a {
 }
 .logo {
     height: 100px;
-    margin: 1.7rem;
+    margin: 0.7rem;
     margin-left: 0.4rem;
 }
 .banner {
@@ -160,16 +161,25 @@ nav a {
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: flex-start;
+    box-shadow: 0 3px 15px gray;
 }
 .navbar-aside li {
     list-style-type: none;
+    background-color: bisque;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    transition: all 0.3s ease-in-out;
+}
+.navbar-aside li:hover {
+    background-color: rgb(255, 234, 209);
+    box-shadow: 0 1px 10px gray;
 }
 .featurette-wrapper {
     width: 60%;
-    margin-top: 3.2rem;
+    padding: 3.2rem 0;
     margin-left: 20%;
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
 }
 
 .featurette-image img {
@@ -186,12 +196,18 @@ nav a {
     justify-content: end;
   }
 .navbar-aside {
-    /*width: 19%;*/
     min-width: 200px;
     max-width: 270px;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    border-radius: 5px 0;
+    padding: 0;
+    align-items: center;
+    display: flex;
+    align-self: center;
+}
+.navbar-aside ul {
+    padding: 0;
+}
+.navbar-aside li {
+    margin: 0.8rem 0;
 }
 /*================ Fin de Navbar ASIDE =====================*/
 .sidebar nav a:hover {
@@ -327,9 +343,14 @@ main {
     flex-wrap: wrap;
     justify-content: center;
 }
+.section-up img {
+    max-width: 300px;
+    
+}
 .section-left {
     width: 45%;
     max-width: 470px;
+    padding: 20px;
     color: #eee;
     text-decoration: none;
     background-color: #c5a880;
@@ -343,6 +364,8 @@ main {
 }
 .section-left img {
     width: 100%;
+    max-width: 300px;
+    margin: 1.2rem 0;
     border-radius: 7px 7px 0 0;
 }
 .section-left-text {

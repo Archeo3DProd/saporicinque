@@ -1,19 +1,9 @@
-<nav class="navbar-aside">
+<nav class="navbar-aside text-center">
     <ul>
+        @foreach ($super_categories as $super_categorie)
         <li>
-            <a href="">Vins blancs</a>
+            <a href="">{{ $super_categorie->nom }}</a>
         </li>
-        <li>
-            <a href="">Vins rosé</a>
-        </li>
-        <li>
-            <a href="">Vins rouges</a>
-        </li>
-        <li>
-            <a href="">Vins pétillants</a>
-        </li>
-        <li>
-            <a href="">Grappas et liqueurs</a>
-        </li>
+        @endforeach
     </ul>
 </nav>

@@ -13,11 +13,11 @@
                 <p><a class="btn btn-secondary" href="">En savoir plus &raquo;</a></p>
             </div>
             <div class="featurette-image">
-                <img src="{{ asset($produit_highlighted->image) }}" alt="">
+                <img src="{{ asset($produit_highlighted->image) }}" alt={{ $produit_highlighted->nom }}>
             </div>
         </div>
     </div>
-    <hr class="featurette-divider">
+    
     <div class="section-up">
         <a href="#" class="section-left">
             <image src="" alt="">
@@ -25,8 +25,10 @@
                 <h5>{{ $produits[0]->nom }}</h5>
                 <p>
                     {{ $produits[0]->description }}
+                <img src="{{ $produits[0]->image }}" alt="{{ $produits[0]->nom }}">
                 </p>
-                <p>12.50 le pot de 500gr</p>
+                    
+                <p>{{ $produits[0]->prix }}</p>
             </div>
         </a>
         <div class="section-right">

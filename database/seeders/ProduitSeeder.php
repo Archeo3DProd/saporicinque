@@ -52,9 +52,9 @@ class ProduitSeeder extends Seeder
             $product = explode('/', $product);
             $i = (count($product));
             #6 image
-            $image = strtolower($product[$i-1]);
+            $image = 'images/produits/' . $product[$i-3]  . "/" . $product[$i-2] . "/" . strtolower($product[$i-1]);
             #2 nom
-            $nom = explode('.', $image)[0];
+            $nom = explode('.', strtolower($product[$i-1]))[0];
             #3 slug
             $slug = Str::slug($nom);
             #4 description
