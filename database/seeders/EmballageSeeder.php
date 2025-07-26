@@ -26,6 +26,10 @@ class EmballageSeeder extends Seeder
                     'nom' => 'Canette alu',
                     'slug' => 'canette-alu'
                 ],
+                [
+                    'nom' => 'Paquet',
+                    'slug' => 'paquet'
+                ],
             ));
         }
     }

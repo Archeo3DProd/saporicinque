@@ -96,8 +96,8 @@ class ProduitSeeder extends Seeder
             }
         }
         
-        {DB::table('produits')->insert(array(            
-            /*
+        /*
+        {DB::table('produits')->insert(array(   
                 [                
                     'nom' => '',
                     'slug' => '',
@@ -126,8 +126,8 @@ class ProduitSeeder extends Seeder
                     'sousCategorie_id' => '',
                     'marque' => '',
                 ],
-                */
             ));
         }
+        */
     }
 }

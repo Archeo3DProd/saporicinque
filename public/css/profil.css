@@ -1,0 +1,60 @@
+table { 
+    margin: 0 auto;
+    width: 60%;
+    max-width: 800px;
+    border-collapse: collapse; 
+    text-align: center;
+}
+/* Zebra striping */
+thead th { 
+    background: #c5a880; 
+    border-right: 1px solid #ccc;
+}
+th { 
+    background: #ccc; 
+    color: white; 
+    font-weight: bold;
+}
+td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(219, 219, 219);
+}
+.blank {
+    background-color: white;
+}
+.update-form {
+    margin: 4.8rem auto 3.2rem;
+    padding: 0.1rem 3.2rem;
+    width: 75%;
+    max-width: 450px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.form-field {
+    margin: 3.2rem auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.send-button {
+    color: white;
+    background-color: #c5a880;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+.send-button:hover {
+    background-color: #dab98c;
+    box-shadow: 0 3px 15px gray;
+}
+
+button:disabled, button[disabled=disabled],
+button:disabled:hover,
+button[disabled=disabled]:hover{
+  background-color: #e9d0ad;
+  box-shadow: none;
+}

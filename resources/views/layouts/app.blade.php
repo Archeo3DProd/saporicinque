@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     {{-- Ton CSS perso (optionnel) --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/produit.css') }}">
     {{-- Animated scroll --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
     {{-- GLightbox --}}
@@ -20,7 +21,24 @@
 <body class="d-flex flex-column min-vh-100">
 
     {{-- NAVBAR --}}
-    @include('layouts.header')
+    <header>            
+        @if (Auth::user())
+            @if (Route::is('accueil'))
+                @include('layouts.components.navbar-admin')
+                @include('layouts.components.navbar-top')
+                @include('layouts.components.navbar')
+                @include('layouts.components.banner')
+            @else
+                @include('layouts.components.navbar-admin')
+                @include('layouts.components.navbar-top')
+                @include('layouts.components.navbar')
+            @endif
+        @else
+            @include('layouts.components.navbar-top')
+            @include('layouts.components.navbar')
+            @include('layouts.components.banner')
+        @endif
+    </header>
 
     {{-- CONTENU PRINCIPAL --}}
     <main class="flex-grow-1">
@@ -32,7 +50,7 @@
 
     {{-- JS Bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-Z
+
     {{-- GLightbox --}}
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script>

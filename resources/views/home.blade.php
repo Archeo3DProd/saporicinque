@@ -1,6 +1,11 @@
 
 @extends('layouts.app')
 @section('title', 'Accueil')
+    @if (session('logout-message'))
+        <div class="alert alert-success text-center" role="alert">
+            {!! session('logout-message') !!}
+        </div>
+    @endif
 @section('content')
     <div class="main-top">
         @include('layouts.components.navbar-aside')

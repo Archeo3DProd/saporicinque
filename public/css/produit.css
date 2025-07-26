@@ -1,0 +1,39 @@
+.produit-details {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    max-width: 600px;
+}
+.edit-produit-form {
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.edit-form-section {
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    padding: 1.2rem;
+}
+.edit-form-section img {
+    width: 20%;
+    height: 20%;
+}
+.edit-submit-btn {
+    width: 250px;
+    margin: 0 auto;
+    border: none;
+    padding: 0.8rem 0;
+    background-color: #c5a880;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+.edit-submit-btn:hover {
+    box-shadow: 0 3px 15px gray;
+    background-color: #dfc6a4;
+}
