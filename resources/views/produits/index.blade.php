@@ -10,7 +10,7 @@
     <h2>{{ $produit->nom }}</h2>
     <p>{{ $produit->prix }} CHF</p>
     <div class="form-button-container">
-        <form action="/produit/edit/{{ $produit->id }}" method="GET">
+        <form action="{{ route('produit/edit', ['id' => $produit->id]) }}" method="GET">
             @csrf
             <button class="form-button button-edit mb-2">Modifier</button>
             <input type="hidden" id="{{ $produit->id }}" name="produit_id" value="{{ $produit->id }}">

@@ -14,8 +14,8 @@
                 <h2 class="">Pendant tout le mois de mars</h2>
                 <h3 class="">{{ $produit_highlighted->nom }}</h3>
                 <p class="lead">50% de réduction</p>
-                <p class="lead">Seulement 249.- les 500 grammes</p>
-                <p><a class="btn btn-secondary" href="">En savoir plus &raquo;</a></p>
+                <p class="lead">Seulement {{ $produit_highlighted->prix }}</p>
+                <p><a class="btn btn-secondary" href="{{ route('produit', ['slug' => $produit_highlighted->slug]) }}">En savoir plus &raquo;</a></p>
             </div>
             <div class="featurette-image">
                 <img src="{{ asset($produit_highlighted->image) }}" alt={{ $produit_highlighted->nom }}>
@@ -24,57 +24,58 @@
     </div>
     
     <div class="section-up">
-        <a href="#" class="section-left">
-            <image src="" alt="">
+        <a href="{{ route('produit', ['slug' => $produits[0]->slug]) }}" class="section-left">
             <div class="section-left-text">
-                <h5>{{ $produits[0]->nom }}</h5>
-                <p>
-                    {{ $produits[0]->description }}
-                <img src="{{ $produits[0]->image }}" alt="{{ $produits[0]->nom }}">
+                <div class="mt-3">
+                    <h5 class="m-0 mb-2">{{ $produits[0]->nom }}</h5>
+                    <p class="m-0 mb-2">{{ $produits[0]->quantite }} {{ strtolower($produits[0]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}</p>
+                    <p class="m-0">Chf {{ $produits[0]->prix }}</p>
+                </div>
+                <img src="{{ $produits[0]->image }}" alt="Image de {{ $produits[0]->nom }}">
+                <p class="mb-3">
+                    {{ $produits[1]->description }}
                 </p>
-                    
-                <p>{{ $produits[0]->prix }}</p>
             </div>
         </a>
         <div class="section-right">
-            <a href="#" class="section-small-item mb-3">
-                <image src="{{ asset('image/proposition_2/blanc.jpg') }}" alt="">
+            <a href="{{ route('produit', ['slug' => $produits[2]->slug]) }}" class="section-small-item mb-3">
+                <img src="{{ $produits[2]->image }}" alt="{{ $produits[2]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Pinot Gris</h5>
-                    <p>
-                        Ticino
+                    <h5 class="m-0">{{ $produits[2]->nom }}</h5>
+                    <p class="m-0">
+                        {{ $produits[2]->quantite }} {{ strtolower($produits[2]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>76.90 le carton de 6 bouteilles</p>
+                    <p class="m-0">Chf {{ $produits[2]->prix }}</p>
                 </div>
             </a>
             <a href="#" class="section-small-item mb-3">
-                <image src="{{ asset('image/proposition_2/pates.png') }}" alt="">
+                <img src="{{ $produits[3]->image }}" alt="{{ $produits[3]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Pâtes fraîches</h5>
-                    <p>
-                        De ma mémé
+                    <h5 class="m-0">{{ $produits[3]->nom }}</h5>
+                    <p class="m-0">
+                        {{ $produits[3]->quantite }} {{ strtolower($produits[3]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>6.90 les 600gr</p>
+                    <p class="m-0">{{ $produits[3]->prix }}</p>
                 </div>
             </a>
             <a href="#" class="section-small-item">
-                <image src="{{ asset('image/proposition_2/farine.png') }}" alt="">
+                <img src="{{ $produits[4]->image }}" alt="{{ $produits[4]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Farine blanche</h5>
-                    <p>
-                        &Aacute; la meule de pierre
+                    <h5 class="m-0">{{ $produits[4]->nom }}</h5>
+                    <p class="m-0">
+                        {{ $produits[4]->quantite }} {{ strtolower($produits[4]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>4.50 le kilo</p>
+                    <p class="m-0">{{ $produits[4]->prix }}</p>
                 </div>
             </a>
             <a href="#" class="section-small-item">
-                <image src="{{ asset('image/proposition_2/framboises.jpg') }}" alt="">
+                <img src="{{ $produits[5]->image }}" alt="{{ $produits[5]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Framboises</h5>
-                    <p>
-                        De par chez nous
+                    <h5 class="m-0">{{ $produits[5]->nom }}</h5>
+                    <p class="m-0">
+                        {{ $produits[5]->quantite }} {{ strtolower($produits[5]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>8.90 le kilo</p>
+                    <p class="m-0">{{ $produits[5]->prix }}</p>
                 </div>
             </a>
         </div>
@@ -85,154 +86,139 @@
     <div class="section-down">
         <div class="section-right">
             <a href="#" class="section-small-item mb-3">
-                <image src="{{ asset('image/proposition_2/blanc.jpg') }}" alt="">
+                <img src="{{ $produits[6]->image }}" alt="{{ $produits[6]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Pinot Gris</h5>
+                    <h5>{{ $produits[6]->nom }}</h5>
                     <p>
-                        Ticino
+                        {{ $produits[6]->quantite }} {{ strtolower($produits[6]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>76.90 le carton de 6 bouteilles</p>
+                    <p>{{ $produits[6]->prix }}</p>
                 </div>
             </a>
             <a href="#" class="section-small-item mb-3">
-                <image src="{{ asset('image/proposition_2/pates.png') }}" alt="">
+                <img src="{{ $produits[7]->image }}" alt="{{ $produits[7]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Pâtes fraîches</h5>
+                    <h5>{{ $produits[7]->nom }}</h5>
                     <p>
-                        De ma mémé
+                        {{ $produits[7]->quantite }} {{ strtolower($produits[7]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>6.90 les 600gr</p>
+                    <p>{{ $produits[7]->prix }}</p>
                 </div>
             </a>
             <a href="#" class="section-small-item">
-                <image src="{{ asset('image/proposition_2/farine.png') }}" alt="">
+                <img src="{{ $produits[8]->image }}" alt="{{ $produits[8]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Farine blanche</h5>
+                    <h5>{{ $produits[8]->nom }}</h5>
                     <p>
-                        &Aacute; la meule de pierre
+                        {{ $produits[8]->quantite }} {{ strtolower($produits[8]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>4.50 le kilo</p>
+                    <p>{{ $produits[8]->prix }}</p>
                 </div>
             </a>
             <a href="#" class="section-small-item">
-                <image src="{{ asset('image/proposition_2/framboises.jpg') }}" alt="">
+                <img src="{{ $produits[9]->image }}" alt="{{ $produits[9]->nom }}">
                 <div class="section-small-item-text">
-                    <h5>Framboises</h5>
+                    <h5>{{ $produits[9]->nom }}</h5>
                     <p>
-                        De par chez nous
+                        {{ $produits[9]->quantite }} {{ strtolower($produits[9]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                     </p>
-                    <p>8.90 le kilo</p>
+                    <p>{{ $produits[9]->prix }}</p>
                 </div>
             </a>
         </div>
         <a href="#" class="section-left">
-            <image src="{{ asset('image/proposition_2/miel.jpg') }}" alt="">
-            <div class="section-left-text">
-                <h5>Miel extra-frais</h5>
+            <div class="section-small-item-text">
+                <h5>{{ $produits[10]->nom }}</h5>
                 <p>
-                    Léventine
+                    {{ $produits[10]->quantite }} {{ strtolower($produits[10]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>12.50 le pot de 500gr</p>
+                <p>{{ $produits[10]->prix }}</p>
+            <img src="{{ $produits[10]->image }}" alt="{{ $produits[10]->nom }}">
             </div>
+                <p>{{ $produits[10]->description }}</p>
         </a>
     </div>
     <div class="small-cards">
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/blanc.jpg') }}" alt="">
+            <img src="{{ $produits[11]->image }}" alt="{{ $produits[11]->nom }}">
             <div class="section-small-item-text">
-                <h5>Pinot Gris</h5>
+                <h5>{{ $produits[11]->nom }}</h5>
                 <p>
-                    Ticino
+                    {{ $produits[11]->quantite }} {{ strtolower($produits[11]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>76.90 le carton de 6 bouteilles</p>
+                <p>{{ $produits[11]->prix }}</p>
             </div>
         </a>
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/pates.png') }}" alt="">
+            <img src="{{ $produits[12]->image }}" alt="{{ $produits[12]->nom }}">
             <div class="section-small-item-text">
-                <h5>Pâtes fraîches</h5>
+                <h5>{{ $produits[12]->nom }}</h5>
                 <p>
-                    De ma mémé
+                    {{ $produits[12]->quantite }} {{ strtolower($produits[12]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>6.90 les 600gr</p>
+                <p>{{ $produits[12]->prix }}</p>
             </div>
         </a>
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/farine.png') }}" alt="">
+            <img src="{{ $produits[13]->image }}" alt="{{ $produits[13]->nom }}">
             <div class="section-small-item-text">
-                <h5>Farine blanche</h5>
+                <h5>{{ $produits[13]->nom }}</h5>
                 <p>
-                    &Aacute; la meule de pierre
+                    {{ $produits[13]->quantite }} {{ strtolower($produits[13]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>4.50 le kilo</p>
+                <p>{{ $produits[13]->prix }}</p>
             </div>
         </a>
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/framboises.jpg') }}" alt="">
+            <img src="{{ $produits[14]->image }}" alt="{{ $produits[14]->nom }}">
             <div class="section-small-item-text">
-                <h5>Framboises</h5>
+                <h5>{{ $produits[14]->nom }}</h5>
                 <p>
-                    De par chez nous
+                    {{ $produits[14]->quantite }} {{ strtolower($produits[14]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>8.90 le kilo</p>
+                <p>{{ $produits[14]->prix }}</p>
             </div>
         </a>
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/blanc.jpg') }}" alt="">
+            <img src="{{ $produits[15]->image }}" alt="{{ $produits[15]->nom }}">
             <div class="section-small-item-text">
-                <h5>Pinot Gris</h5>
+                <h5>{{ $produits[15]->nom }}</h5>
                 <p>
-                    Ticino
+                    {{ $produits[15]->quantite }} {{ strtolower($produits[15]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>76.90 le carton de 6 bouteilles</p>
+                <p>{{ $produits[15]->prix }}</p>
             </div>
         </a>
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/pates.png') }}" alt="">
+            <img src="{{ $produits[16]->image }}" alt="{{ $produits[16]->nom }}">
             <div class="section-small-item-text">
-                <h5>Pâtes fraîches</h5>
+                <h5>{{ $produits[16]->nom }}</h5>
                 <p>
-                    De ma mémé
+                    {{ $produits[16]->quantite }} {{ strtolower($produits[16]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>6.90 les 600gr</p>
+                <p>{{ $produits[16]->prix }}</p>
             </div>
         </a>
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/farine.png') }}" alt="">
+            <img src="{{ $produits[17]->image }}" alt="{{ $produits[17]->nom }}">
             <div class="section-small-item-text">
-                <h5>Farine blanche</h5>
+                <h5>{{ $produits[17]->nom }}</h5>
                 <p>
-                    &Aacute; la meule de pierre
+                    {{ $produits[17]->quantite }} {{ strtolower($produits[17]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>4.50 le kilo</p>
+                <p>{{ $produits[17]->prix }}</p>
             </div>
         </a>
         <a href="#" class="small-card">
-            <image src="{{ asset('image/proposition_2/framboises.jpg') }}" alt="">
+            <img src="{{ $produits[18]->image }}" alt="{{ $produits[18]->nom }}">
             <div class="section-small-item-text">
-                <h5>Framboises</h5>
+                <h5>{{ $produits[18]->nom }}</h5>
                 <p>
-                    De par chez nous
+                    {{ $produits[18]->quantite }} {{ strtolower($produits[18]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}
                 </p>
-                <p>8.90 le kilo</p>
+                <p>{{ $produits[18]->prix }}</p>
             </div>
         </a>
-    </div>
-    <div class="">
-        <div class="mt-5 text-center mb-5">
-            <h1>&Agrave; propos de nous</h1>
-        </div>
-        <div class="services-cards">
-            <div class="mt-3">
-                Pellentesque nec interdum arcu. Nullam mollis vulputate diam eu laoreet. Maecenas dignissim lorem vel congue viverra. Pellentesque condimentum porttitor eros id rutrum. Nulla posuere tortor in tincidunt iaculis. Vestibulum at purus augue. Fusce commodo finibus velit elementum suscipit. Nullam ullamcorper aliquam libero ac lobortis. Quisque nec lacus accumsan, vulputate magna sed, auctor risus. 
-            </div>
-            <div class="mt-3">
-                Nunc feugiat erat sit amet justo condimentum, auctor elementum lorem vestibulum. Proin hendrerit justo quis tempus tempus. Integer dignissim mauris a viverra malesuada. Morbi luctus dui vel dolor fringilla, vel rutrum est consectetur. Morbi facilisis semper nibh. In cursus felis auctor, lacinia arcu sit amet, volutpat massa. Donec dictum varius leo, ut efficitur lectus posuere nec. Vivamus arcu eros, varius vel nunc at, ornare lacinia turpis. 
-            </div>
-            <div class="mt-3 mb-5">
-                Vivamus sollicitudin odio ac imperdiet vestibulum. Sed eleifend diam ex, ac aliquam orci dignissim ut. Suspendisse placerat, magna in pretium placerat, ex est volutpat nunc, at consectetur arcu sapien ac magna. Pellentesque hendrerit egestas nulla nec dapibus. Aliquam faucibus est ipsum, eget volutpat odio dignissim sed. Integer nec aliquam ligula. Nunc at velit vitae augue venenatis aliquam eu vehicula sapien. Donec mi mi, lacinia imperdiet risus ac, consectetur iaculis mauris
-            </div>
-        </div>
     </div>
     <div class="newletter">
         <h3 class="text-center">

@@ -77,6 +77,8 @@ class ProduitSeeder extends Seeder
             } else {
                 $alcoolemie = null;
             }
+            #15 quantité
+            $quantite = rand(1, 900);
             
             {DB::table('produits')->insert(array(   
                     [                
@@ -91,6 +93,7 @@ class ProduitSeeder extends Seeder
                         'alcoolemie' => $alcoolemie,
                         'categorie_id' => $categorie_id,
                         'marque_id' => $marque_id,
+                        'quantite' => $quantite,
                     ],
                 ));
             }

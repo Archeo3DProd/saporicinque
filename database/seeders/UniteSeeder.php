@@ -38,6 +38,10 @@ class UniteSeeder extends Seeder
                     'nom' => 'Litre',
                     'slug' => 'litre'
                 ],
+                [                
+                    'nom' => 'Lot',
+                    'slug' => 'lot'
+                ],
             ));
         }
     }

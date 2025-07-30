@@ -11,13 +11,13 @@
     src: url("../fonts/Old_Standard_TT/OldStandardTT-Italic.ttf") format("truetype");
 }
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #fdfdf9;
+    font-family: 'Palatino', sans-serif;
+    background: #fff;
     color: #333;
     margin: 0;
 }
 h1 {
-    font-family: 'Old italic';
+    font-family: 'Palatino';
     color: #fff;
     text-align: center;
     font-size: 4.8em;
@@ -29,7 +29,7 @@ header {
     flex-direction: column;
 }
 .subtitle {
-    font-family: 'Jakarta';
+    font-family: 'Palatino';
     color: #fff;
     text-align: center;
     font-size: 2.4em;
@@ -81,24 +81,32 @@ nav a {
     display: block;
     margin: 00;
     text-decoration: none;
-    color: #5a4c3c;
+    color: #000000;
     font-weight: bold;
-    padding: 1.2rem 2.4rem;
+    padding: 0.7rem 2.4rem;
     transition: background 0.2s;
 }
 .navbar-up {
     width: 100%;
+    margin-top: 15px;
     padding: 0 1.2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff !important;
-    box-shadow: 0 3px 15px gray inset;
+    /*box-shadow: 0 3px 15px gray inset;*/
 }
 .search-form{
-    margin-right: 50px;
-    width: 50%;
+    margin-right: 0;
+    width: 46%;
+}
+.btn-search {
+    background-color: white;
+    color: #198754;
+}
+.btn-search:hover {
+    background-color: #198754;
+    color: white;
 }
 .nav-links-pro {
     width: auto;
@@ -107,10 +115,12 @@ nav a {
     flex-direction: row;
 }
 .nav-link-pro {
-    width: 145px;
+    display: flex;
+    align-items: center;
+    width: 165px;
     min-width: 145px;
-    height: 55px;
-    background-color: #c5a880;
+    /*height: 55px;*/
+    background-color: #00325f;
     color: #eee;
     padding: 0.8rem;
     border-radius: 7px;
@@ -122,9 +132,10 @@ nav a {
         transform 0.2s;
 }
 .nav-link-pro:hover {
-    background-color: #dab98c;
+    background-color: rgba(0, 66, 153, .7);
+    /*background-color: #c5a880;*/
     color: #fff;
-    box-shadow: 0 3px 15px gray;
+    box-shadow: 0 3px 7px gray;
 }
 .navlink-contact {
     margin-left: 1.7rem;
@@ -135,6 +146,11 @@ nav a {
 .icone {
     width: 25px;
     margin-right: 8px;
+}
+.icone-contact {
+    width: 25px;
+    margin-right: 20px;
+    margin-left: 5px;
 }
 .logo {
     height: 100px;
@@ -175,9 +191,13 @@ nav a {
 }
 .navbar-aside li {
     list-style-type: none;
-    background-color: bisque;
+    background-color: #f0dcbf;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 0 7px 7px 0;
     transition: all 0.3s ease-in-out;
+}
+.navbar-aside a {
+    color: #000;
 }
 .navbar-aside li:hover {
     background-color: rgb(255, 234, 209);
@@ -215,6 +235,7 @@ nav a {
 }
 .navbar-aside ul {
     padding: 0;
+    margin: 0;
 }
 .navbar-aside li {
     margin: 0.8rem 0;
@@ -236,7 +257,7 @@ nav a {
     padding: 0 1.2rem;
 }
 .produit {
-    width: 240px;
+    width: 320px;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -251,8 +272,8 @@ nav a {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 .produit img {
-    width: 100%;
-    height: 150px;
+    max-width: 270px;
+    max-height: 200px;
     object-fit: cover;
     border-radius: 6px;
     margin-bottom: 1rem;
@@ -278,10 +299,11 @@ nav a {
     transition: background 0.3s;
 }
 .produit .button-edit {
-    background: #33b822;
+    background: #198754;
 }
 .produit .button-edit:hover {
-    background: #55d843;
+    background: #f7d2a1;
+    color: #000;
 }
 .produit .button-delete {
     background: #8b2e2e;
@@ -362,11 +384,12 @@ nav a {
 }
 
 /*=============== Importé de proposition_3 =======================*/
-
+/*
 .search-form {
     max-width: 450px;
     margin-right: auto;
 }
+    */
 main {
     width: 100%;
     margin: 0 auto;
@@ -400,17 +423,23 @@ main {
     box-shadow: rgba(0, 0, 0, 0.65) 0px 5px 15px;
 }
 .section-left img {
-    width: 100%;
-    max-width: 300px;
+    max-height: 300px;
+    width: auto;
     margin: 1.2rem 0;
     border-radius: 7px 7px 0 0;
 }
 .section-left-text {
+    width: 100%;
+    height: 100%;
+    color: #000;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding-top: 3vw;
+    justify-content: space-between;
+}
+.section-left-text h5 {
+    font-style: italic;
 }
 .section-right {
     width: 45%;
@@ -420,9 +449,13 @@ main {
     align-content: space-evenly;
 }
 .section-small-item {
+    text-align: center;
     width: 45%;
     min-width: 120px;
-    background-color: #e0e0cb;
+    background-color: #f0dcbf;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     transition: box-shadow 0.3s ease-in-out;
     text-decoration: none;
     color: #333;
@@ -434,11 +467,21 @@ main {
     box-shadow: rgba(0, 0, 0, 0.55) 0px 5px 18px;
 }
 .section-small-item img {
-    width: 100%;
+    max-height: 250px;
+    width: auto;
+    max-width: 200px;
+    margin: 25px auto 0.8rem;
     border-radius: 7px 7px 0 0;
 }
 .section-small-item-text {
+    width: 100%;
     padding: 0.8rem;
+    margin: 0;
+    height: auto;
+    align-self: flex-end;
+}
+.section-small-item-text h5 {
+    font-style: italic;
 }
 .ask-pro {
     margin-bottom: 6.4rem;

@@ -16,7 +16,7 @@ class SuperCategorieSeeder extends Seeder
         {DB::table('super_categories')->insert(array(
                 [                
                     'nom' => 'Boissons alcoolisées',
-                    'slug' => 'boissons-alcoolisées'
+                    'slug' => 'boissons-alcoolisees'
                 ],
                 [
                     'nom' => 'Boissons sans alcool',
@@ -31,7 +31,7 @@ class SuperCategorieSeeder extends Seeder
                     'slug' => 'douceurs'
                 ],
                 [
-                    'nom' => 'Assaisonnemnts',
+                    'nom' => 'Assaisonnements',
                     'slug' => 'assaisonnements'
                 ],
             ));

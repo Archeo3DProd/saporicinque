@@ -31,7 +31,7 @@
     <hr class="divider my-2">
     <div class="edit-form-section">
         <label class="mb-3" for="prix">Prix actuel : {{ $produit->prix }}</label>
-        <input type="number" id="prix" name="prix" value="{{ $produit->prix }}">
+        <input type="text" id="prix" name="prix" value="{{ $produit->prix }}"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
     </div>
     <hr class="divider my-2">
     <div class="edit-form-section">
@@ -46,12 +46,30 @@
     <div class="edit-form-section">
         <label class="mb-3" for="emballage">Emballage actuel : {{ $emballage_actuel->nom }}</label>
         <select name="emballage" id="emballage">
+            <option value="0">Aucun</option>
             @foreach ($emballages as $emballage)
                 <option value="{{ $emballage->id }}" {{ $emballage_actuel->id == $emballage->id ? 'selected=true' : '' }}>{{ $emballage->nom }}</option>
             @endforeach
         </select>
     </div>
     <hr class="divider my-2">
+    <div class="edit-form-section">
+        <label class="mb-3" for="unite">Catégorie actuelle : {{ $super_categorie_actuelle->nom }}</label>
+        <select name="categorie" id="categorie">
+            @foreach ($super_categories as $super_categorie)
+                <option value="{{ $super_categorie->id }}" {{ $super_categorie_actuelle->id == $super_categorie->id ? 'selected=true' : '' }}>{{ $super_categorie->nom }}</option>
+            @endforeach
+        </select>
+    </div>
+    <hr class="divider my-2">
+    <div class="edit-form-section">
+        <label class="mb-3" for="unite">Sous-catégorie actuelle : {{ $categorie_actuelle->nom }}</label>
+        <select name="categorie" id="categorie">
+            @foreach ($categories as $categorie)
+                <option value="{{ $categorie->id }}" {{ $categorie_actuelle->id == $categorie->id ? 'selected=true' : '' }}>{{ $categorie->nom }}</option>
+            @endforeach
+        </select>
+    </div>
     <button class="edit-submit-btn my-5" type="submit">Confirmer ces données</button>
 </form>
 

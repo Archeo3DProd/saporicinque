@@ -34,9 +34,14 @@
                 @include('layouts.components.navbar')
             @endif
         @else
-            @include('layouts.components.navbar-top')
-            @include('layouts.components.navbar')
-            @include('layouts.components.banner')
+            @if (Route::is('accueil'))
+                @include('layouts.components.navbar-top')
+                @include('layouts.components.navbar')
+                @include('layouts.components.banner')
+            @else
+                @include('layouts.components.navbar-top')
+                @include('layouts.components.navbar')
+            @endif
         @endif
     </header>
 

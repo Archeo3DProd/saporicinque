@@ -18,7 +18,11 @@ Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/aPropos', [HomeController::class, 'aPropos'])->name('aPropos');
 Route::get('/liens', [HomeController::class, 'liens'])->name('liens');
-Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/recettes', [HomeController::class, 'recettes'])->name('recettes');
+Route::get('/tous_les_produits', [HomeController::class, 'tous_les_produits'])->name('tous_les_produits');
+Route::get('/produits/{categorie}', [HomeController::class, 'produits'])->name('produits/{categorie}');
+Route::get('/produit/{slug}', [HomeController::class, 'produit'])->name('produit');
+Route::get('/recherche', [HomeController::class, 'recherche'])->name('recherche');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -38,7 +42,7 @@ Route::middleware('auth')->group(function () {
     // Pages Produits
     Route::get('/produits', [ProduitController::class, 'index'])->name('produits');
     Route::post('/produit_details', [ProduitController::class, 'produit_details'])->name('produit_details');
-    Route::get('/produit/edit/{id}', [ProduitController::class, 'edit'])->name('produit/edit/{id}');
+    Route::get('/produit/edit/{id}', [ProduitController::class, 'edit'])->name('produit/edit');
     Route::post('/produit/edit', [ProduitController::class, 'edit_post'])->name('produit.edit');
 
 });

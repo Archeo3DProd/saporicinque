@@ -2,7 +2,7 @@
     <ul>
         @foreach ($super_categories as $super_categorie)
         <li>
-            <a href="">{{ $super_categorie->nom }}</a>
+            <a href="{{ route('produits/{categorie}', ['categorie' => $super_categorie->slug]) }}">{{ $super_categorie->nom }}</a>
         </li>
         @endforeach
     </ul>
