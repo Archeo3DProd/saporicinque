@@ -1,5 +1,5 @@
 <div class="navbar-up">
-    <a href="{{ route('accueil') }}">
+    <a href="{{ route('/') }}">
       <img class="logo" src="{{ asset('images/logo_black.png') }}" alt=""> 
     </a>
     <form class="d-flex search-form" action="{{ route('recherche') }}" role="search">

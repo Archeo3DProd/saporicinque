@@ -12,14 +12,17 @@ class Produit extends Model
         'nom',
         'slug',
         'description',
-        'prix',
         'image',
+        'prix_prive',
+        'prix_distributeur',
+        'prix_gastro',
         'unite_id',
         'prix_unite',
         'emballage_id',
         'alcoolemie',
         'categorie_id',
-        'marque_id',
+        'sous_categorie_id',
+        'fabricant_id',
         'quantite'
     ];
 
@@ -31,12 +34,8 @@ class Produit extends Model
         return $this->belongsTo(Emballage::class);
     }
 
-    public function categorie(): BelongsTo {
-        return $this->belongsTo(SuperCategorie::class);
-    }
-
-    public function marque(): BelongsTo {
-        return $this->belongsTo(Marque::class);
+    public function fabricant(): BelongsTo {
+        return $this->belongsTo(Fabricant::class);
     }
 
     public function quantite(): BelongsTo {

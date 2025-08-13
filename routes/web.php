@@ -13,7 +13,7 @@ use App\Models\Produit;
 use Illuminate\Support\Facades\Route;
 
     
-Route::get('/accueil', [HomeController::class, 'accueil'])->name('accueil');
+Route::get('/', [HomeController::class, 'accueil'])->name('/');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/aPropos', [HomeController::class, 'aPropos'])->name('aPropos');
@@ -42,8 +42,10 @@ Route::middleware('auth')->group(function () {
     // Pages Produits
     Route::get('/produits', [ProduitController::class, 'index'])->name('produits');
     Route::post('/produit_details', [ProduitController::class, 'produit_details'])->name('produit_details');
-    Route::get('/produit/edit/{id}', [ProduitController::class, 'edit'])->name('produit/edit');
+    Route::get('/produit/edit/{slug?}', [ProduitController::class, 'edit'])->name('produit/edit');
     Route::post('/produit/edit', [ProduitController::class, 'edit_post'])->name('produit.edit');
+    Route::get('/produit.nouveau', [ProduitController::class, 'nouveau'])->name('produit.nouveau');
+    Route::post('/produit/nouveau', [ProduitController::class, 'nouveau_post'])->name('produit/nouveau');
 
 });
 

@@ -26,7 +26,7 @@ class LoginController extends Controller
             Session::flash('error', "Credentials does not match our record.");
             return Redirect::back();
         } else {
-            return redirect()->route('accueil');
+            return redirect()->route('/');
         }
     }
 }

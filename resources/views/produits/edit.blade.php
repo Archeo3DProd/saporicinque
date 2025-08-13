@@ -30,8 +30,23 @@
     </div>
     <hr class="divider my-2">
     <div class="edit-form-section">
-        <label class="mb-3" for="prix">Prix actuel : {{ $produit->prix }}</label>
-        <input type="text" id="prix" name="prix" value="{{ $produit->prix }}"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        <label class="mb-3" for="prix_prive">Prix Privé actuel : {{ $produit->prix_prive }}</label>
+        <input type="text" id="prix_prive" name="prix_prive" value="{{ $produit->prix_prive }}"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+    </div>
+    <hr class="divider my-2">
+    <div class="edit-form-section">
+        <label class="mb-3" for="prix_distributeur">Prix Distributeur actuel : {{ $produit->prix_distributeur }}</label>
+        <input type="text" id="prix_distributeur" name="prix_distributeur" value="{{ $produit->prix_distributeur }}"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+    </div>
+    <hr class="divider my-2">
+    <div class="edit-form-section">
+        <label class="mb-3" for="prix_gastro">Prix Gastro actuel : {{ $produit->prix_gastro }}</label>
+        <input type="text" id="prix_gastro" name="prix_gastro" value="{{ $produit->prix_gastro }}"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+    </div>
+    <hr class="divider my-2">
+    <div class="edit-form-section">
+        <label class="mb-3" for="quantite">Quantité actuelle : {{ $quantite_actuelle }}</label>
+        <input type="text" id="quantite" name="quantite" value="{{ $quantite_actuelle }}"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
     </div>
     <hr class="divider my-2">
     <div class="edit-form-section">
@@ -54,19 +69,19 @@
     </div>
     <hr class="divider my-2">
     <div class="edit-form-section">
-        <label class="mb-3" for="unite">Catégorie actuelle : {{ $super_categorie_actuelle->nom }}</label>
+        <label class="mb-3" for="categorie">Catégorie actuelle : {{ $categorie_actuelle->nom }}</label>
         <select name="categorie" id="categorie">
-            @foreach ($super_categories as $super_categorie)
-                <option value="{{ $super_categorie->id }}" {{ $super_categorie_actuelle->id == $super_categorie->id ? 'selected=true' : '' }}>{{ $super_categorie->nom }}</option>
+            @foreach ($categories as $categorie)
+                <option value="{{ $categorie->id }}" {{ $categorie_actuelle->id == $categorie->id ? 'selected=true' : '' }}>{{ $categorie->nom }}</option>
             @endforeach
         </select>
     </div>
     <hr class="divider my-2">
     <div class="edit-form-section">
-        <label class="mb-3" for="unite">Sous-catégorie actuelle : {{ $categorie_actuelle->nom }}</label>
-        <select name="categorie" id="categorie">
-            @foreach ($categories as $categorie)
-                <option value="{{ $categorie->id }}" {{ $categorie_actuelle->id == $categorie->id ? 'selected=true' : '' }}>{{ $categorie->nom }}</option>
+        <label class="mb-3" for="sous_categorie">Sous-catégorie actuelle : {{ $sous_categorie_actuelle->nom }}</label>
+        <select name="sous_categorie" id="sous_categorie">
+            @foreach ($sous_categories as $sous_categorie)
+                <option value="{{ $sous_categorie->id }}" {{ $sous_categorie_actuelle->id == $sous_categorie->id ? 'selected=true' : '' }}>{{ $sous_categorie->nom }}</option>
             @endforeach
         </select>
     </div>

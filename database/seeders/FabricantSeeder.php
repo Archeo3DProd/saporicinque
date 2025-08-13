@@ -6,14 +6,14 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MarqueSeeder extends Seeder
+class FabricantSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        {DB::table('marques')->insert(array(
+        {DB::table('fabricants')->insert(array(
                 [                
                     'nom' => 'I Quatro',
                     'slug' => 'i-quatro'

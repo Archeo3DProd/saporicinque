@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('produits', function (Blueprint $table) {
-            $table->renameColumn('marque', 'marque_id');
-            $table->integer('marque_id')->change();
+            $table->renameColumn('fabricant', 'fabricant_id');
+            $table->integer('fabricant_id')->change();
         });
     }
 
@@ -23,8 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('produits', function (Blueprint $table) {
-            $table->renameColumn('marque_id', 'marque');
-            $table->string('marque')->change();
+            $table->renameColumn('fabricant_id', 'fabricant');
+            $table->string('fabricant')->change();
         });
     }
 };

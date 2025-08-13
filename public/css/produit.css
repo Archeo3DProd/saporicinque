@@ -80,3 +80,12 @@
     box-shadow: 0 3px 15px gray;
     background-color: #dfc6a4;
 }
+.nav-tabs {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+.nav-link {
+    color: #999;
+}

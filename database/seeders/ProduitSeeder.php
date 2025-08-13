@@ -60,7 +60,11 @@ class ProduitSeeder extends Seeder
             #4 description
             $desctiption = $faker->paragraph(rand(6, 9));
             #5 prix
-            $prix = (number_format(round($randomizer->getFloat(2, 110), 1), 2));
+            $prix_prive = (number_format(round($randomizer->getFloat(2, 110), 1), 2));
+            #17 prix
+            $prix_distributeur = (number_format(round(($prix_prive * 0.9), 1), 2));
+            #18 prix
+            $prix_gastro = (number_format(round(($prix_prive * 0.85), 1), 2));
             #9 unite_id
             $unite_id = rand(1, 6);
             #10 prix_unite
@@ -68,31 +72,36 @@ class ProduitSeeder extends Seeder
             #11 emballage_id
             $emballage_id = rand(1, 3);
             #13 categorie_id
-            $categorie_id = rand(1, 25);
-            #15 marque
-            $marque_id = rand(1, 30);
+            $categorie_id = rand(1, 5);
+            #15 fabricant
+            $fabricant_id = rand(1, 30);
             #12 alcoolemie
-            if(($marque_id < 15) || ($marque_id > 25)) {
+            if(($fabricant_id < 15) || ($fabricant_id > 25)) {
                 $alcoolemie = (number_format(round($randomizer->getFloat(0, 48), 1), 1));
             } else {
                 $alcoolemie = null;
             }
             #15 quantité
             $quantite = rand(1, 900);
-            
+            #19 sous_categorie
+            $sous_categorie_id = rand(1, 25);
+
             {DB::table('produits')->insert(array(   
                     [                
                         'nom' => $nom,
                         'slug' => $slug,
                         'description' => $desctiption,
-                        'prix' => $prix,
+                        'prix_prive' => $prix_prive,
+                        'prix_distributeur' => $prix_distributeur,
+                        'prix_gastro' => $prix_gastro,
                         'image' => $image,
                         'unite_id' => $unite_id,
                         'prix_unite' => $prix_unite,
                         'emballage_id' => $emballage_id,
                         'alcoolemie' => $alcoolemie,
                         'categorie_id' => $categorie_id,
-                        'marque_id' => $marque_id,
+                        'sous_categorie_id' => $sous_categorie_id,
+                        'fabricant_id' => $fabricant_id,
                         'quantite' => $quantite,
                     ],
                 ));
@@ -113,7 +122,7 @@ class ProduitSeeder extends Seeder
                     'alcoolemie' => '',
                     'categorie_id' => '',
                     'sousCategorie_id' => '',
-                    'marque' => '',
+                    'fabricant' => '',
                 ],
                 [                
                     'nom' => '',
@@ -127,7 +136,7 @@ class ProduitSeeder extends Seeder
                     'alcoolemie' => '',
                     'categorie_id' => '',
                     'sousCategorie_id' => '',
-                    'marque' => '',
+                    'fabricant' => '',
                 ],
             ));
         }

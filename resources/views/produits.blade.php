@@ -2,8 +2,8 @@
 @extends('layouts.app')
 @section('title', 'Produits')
 @section('content')
-    @if (isset($super_categorie))
-        <h2 class="text-center my-4">{{ $super_categorie->nom }}</h2>
+    @if (isset($categorie))
+        <h2 class="text-center my-4">{{ $categorie->nom }}</h2>
     @endif
     @if (isset($recherche))
         <h2 class="text-center my-4">Résultat de la recherche pour "{{ $recherche }}"</h2>

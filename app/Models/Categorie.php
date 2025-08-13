@@ -14,14 +14,10 @@ class Categorie extends Model
     protected $fillable = [
         'name',
         'slug',
-        'superCategorie_id'
+        'sous_Categorie_id'
     ];
 
     public function sous_categories(): HasMany {
         return $this->hasMany(SousCategorie::class);
-    }
-
-    public function super_categorie(): BelongsTo {
-        return $this->belongsTo(SuperCategorie::class);
     }
 }

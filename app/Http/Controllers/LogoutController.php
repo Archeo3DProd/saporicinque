@@ -12,6 +12,6 @@ class LogoutController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect()->route('accueil')->with('logout-message', 'Vous avez bien été déconnecté');
+        return redirect()->route('/')->with('logout-message', 'Vous avez bien été déconnecté');
     }
 }

@@ -24,16 +24,16 @@
     </div>
     
     <div class="section-up">
-        <a href="{{ route('produit', ['slug' => $produits[0]->slug]) }}" class="section-left">
+        <a href="{{ route('produit', ['slug' => $latest_produit->slug]) }}" class="section-left">
             <div class="section-left-text">
                 <div class="mt-3">
-                    <h5 class="m-0 mb-2">{{ $produits[0]->nom }}</h5>
-                    <p class="m-0 mb-2">{{ $produits[0]->quantite }} {{ strtolower($produits[0]->unite->nom) }}{{ $produits[1]->quantite > 1 ? 's' : '' }}</p>
-                    <p class="m-0">Chf {{ $produits[0]->prix }}</p>
+                    <h5 class="m-0 mb-2">{{ $latest_produit->nom }}</h5>
+                    <p class="m-0 mb-2">{{ $latest_produit->quantite }} {{ strtolower($latest_produit->unite->nom) }}{{ $latest_produit->quantite > 1 ? 's' : '' }}</p>
+                    <p class="m-0">Chf {{ $latest_produit->prix }}</p>
                 </div>
-                <img src="{{ $produits[0]->image }}" alt="Image de {{ $produits[0]->nom }}">
+                <img src="{{ $latest_produit->image }}" alt="Image de {{ $latest_produit->nom }}">
                 <p class="mb-3">
-                    {{ $produits[1]->description }}
+                    {{ $latest_produit->description }}
                 </p>
             </div>
         </a>

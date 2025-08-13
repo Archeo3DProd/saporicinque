@@ -23,7 +23,7 @@
     {{-- NAVBAR --}}
     <header>            
         @if (Auth::user())
-            @if (Route::is('accueil'))
+            @if (Route::is('/'))
                 @include('layouts.components.navbar-admin')
                 @include('layouts.components.navbar-top')
                 @include('layouts.components.navbar')
@@ -34,7 +34,7 @@
                 @include('layouts.components.navbar')
             @endif
         @else
-            @if (Route::is('accueil'))
+            @if (Route::is('/'))
                 @include('layouts.components.navbar-top')
                 @include('layouts.components.navbar')
                 @include('layouts.components.banner')
@@ -65,6 +65,7 @@
     </script>
     {{-- Animated scroll --}}
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="{{ 'js/bootstrap.bundle.min.js' }}"></script>
     <script>
         AOS.init();
     </script>
